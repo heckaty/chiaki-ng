@@ -12,7 +12,7 @@
 #endif
 
 #ifdef CHIAKI_HAVE_WEBENGINE
-#define CHROME_VERSION "135"
+#define CHROME_VERSION "133"
 #if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
 #include <QWebEngineClientHints>
 #endif
@@ -1120,7 +1120,7 @@ void QmlBackend::setWebEngineHints(QQuickWebEngineProfile *profile)
     userAgent = userAgent.replace(QRegularExpression(" \\bQtWebEngine[^ ]*\\b"), "");
     userAgent = userAgent.replace(QRegularExpression("\\bChrome[^ ]*\\b"), QString("Chrome/%1.0.0.0").arg(CHROME_VERSION));
 #ifdef Q_OS_WINDOWS
-    userAgent = userAgent.replace("Windows NT 6.2", "Windows NT 10.0")
+    userAgent = userAgent.replace("Windows NT 6.2", "Windows NT 10.0");
     userAgent += QString(" Edg/%1.0.0.0").arg(CHROME_VERSION);
 #endif
     profile->setHttpUserAgent(userAgent);
